@@ -1,0 +1,94 @@
+/* Mengecilkan ukuran datepicker */
+#ui-datepicker-div {
+	font-size: 12px;
+}
+
+body {
+	margin-left:auto;
+	margin-right:auto;
+	padding-left: 20px;
+	padding-right: 20px;
+	max-width: 1000px;
+}
+
+
+
+.btn-save {
+	color: #fff;
+	background-color: #3276b1;
+	border-color: #285e8e;
+}
+.btn-save:hover {
+	color: #3276b1;
+	background-color: #fff;
+	border-color: #285e8e;
+}
+
+.btn-update {
+	color: #fff;
+	background-color: #2DB300;
+	border-color: #008C00;
+}
+.btn-update:hover {
+	color: #2DB300;
+	background-color: #fff;
+	border-color: #008C00;
+}
+
+
+.btn-add {
+	color: #fff;
+	background-color: #5bc0de;
+	border-color: #5bc0de;
+}
+.btn-add:hover {
+	color: #5bc0de;
+	background-color: #fff;
+	border-color: #5bc0de;
+}
+
+
+
+.btn-show-add-new {
+	color: #fff;
+	background-color: #009218;
+	border-color: #015800;
+}
+.btn-show-add-new:hover {
+	color: #009218;
+	background-color: #fff;
+	border-color: #015800;
+}
+
+#btn-view:hover {
+	color: #26B7FF;
+	cursor: pointer;
+}
+.btn-edit:hover, #btn-edit-detail:hover {
+	color: #FFBF00;
+	cursor: pointer;
+}
+.btn-delete:hover, #btn-delete-detail:hover {
+	color: #c52b00;
+	cursor: pointer;
+}
+.btn-cancel-edit:hover{
+	color: #0000D9;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+tr.record-data:hover {
+	background-color: #9ecff2;
+	color: #fff;
+}
+
+
+
+.toggle-info-shortcuts {
+	padding-left: 15px;
+	cursor: pointer;
+}
+.toggle-info-shortcuts:hover {
+	color: #9ecff2;
+}

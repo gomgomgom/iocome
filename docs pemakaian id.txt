@@ -1,0 +1,19 @@
+/***********************************************************************************
+	Id-id dibawah bukan berasal dari Bootstrap
+	Tapi dibuat sendiri
+	Karena itulah dibuat dokumentasi tersendiri
+***********************************************************************************/
+
+## Menu Category ##
+add-category
+remove-category
+
+
+## Menu Income / Outcome ##
+panel-income-outcome			untuk panel / window saja, agar bisa di buka / tutup atau di show / hide
+
+
+## Menu Report ##
+
+
+## Menu Administration ##

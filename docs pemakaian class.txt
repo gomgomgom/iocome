@@ -1,0 +1,9 @@
+/***********************************************************************************
+	Class-class dibawah bukan berasal dari Bootstrap
+	Tapi dibuat sendiri
+	Karena itulah dibuat dokumentasi tersendiri
+***********************************************************************************/
+
+.tooltip-info		untuk menampilkan tooltip, baik itu di button / span / div / dll
+					memakai bentuk class (. - titik) agar melakukan deklarasi sekali saja di header
+					
