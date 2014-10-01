@@ -1,0 +1,15 @@
+{
+	"ParentID": "[ int ]",
+	"ListData": 
+	[
+		{
+			"Name": "[ string ]",
+			"Description": "[ string ]"
+		},
+		{
+			"Name": "[ string ]",
+			"Description": "[ string ]"
+		},
+		...
+	]
+}

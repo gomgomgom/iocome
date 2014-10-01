@@ -1,0 +1,62 @@
+[
+	{
+		"ID": "[ int ]",
+		"DateTime": "[ date_time ]",
+		"Description": "[ string ]",
+		"CreatedOn": "[ date_time]",
+		"CreatedBy": "[ int ]",
+		"ModifiedOn": "[ int ]",
+		"ModifiedBy": "[ int ]",
+		"Detail":
+		[
+			{
+				"ID": "[ int ]",
+				"Type": "[ string ]",
+				"CategoryID": "[ int ]",
+				"Nominal": "[ int ]",
+				"Description": "[ string ]",
+				"CreatedOn": "[ date_time]",
+				"CreatedBy": "[ int ]",
+				"ModifiedOn": "[ int ]",
+				"ModifiedBy": "[ int ]"
+			},
+			{
+				"ID": "[ int ]",
+				"Type": "[ string ]",
+				"CategoryID": "[ int ]",
+				"Nominal": "[ int ]",
+				"Description": "[ string ]",
+				"CreatedOn": "[ date_time]",
+				"CreatedBy": "[ int ]",
+				"ModifiedOn": "[ int ]",
+				"ModifiedBy": "[ int ]"
+			},
+			....
+		]
+	},
+	{
+		"ID": "[ int ]",
+		"DateTime": "[ date_time ]",
+		"Description": "[ string ]",
+		"CreatedOn": "[ date_time]",
+		"CreatedBy": "[ int ]",
+		"ModifiedOn": "[ int ]",
+		"ModifiedBy": "[ int ]",
+		"Detail":
+		[
+			{
+				"ID": "[ int ]",
+				"Type": "[ string ]",
+				"CategoryID": "[ int ]",
+				"Nominal": "[ int ]",
+				"Description": "[ string ]",
+				"CreatedOn": "[ date_time]",
+				"CreatedBy": "[ int ]",
+				"ModifiedOn": "[ int ]",
+				"ModifiedBy": "[ int ]"
+			},
+			....
+		]
+	},
+	....
+]

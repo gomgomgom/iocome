@@ -1,0 +1,8 @@
+database name ::
+u716112635_io
+
+username mysql ::
+u716112635_root
+
+password ::
+FO2LPavyWX

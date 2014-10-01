@@ -1,0 +1,26 @@
+[
+	{
+		"ElementID": "add-category",
+		"TitleAPI": "Add Category",
+		"URLFull": "http://localhost/iocome/index.php/API/Category/AddCategory",
+		"URLShort": "http://localhost/iocome/index.php/API/C/AC"
+	},
+	{
+		"ElementID": "edit-category",
+		"TitleAPI": "Edit Category",
+		"URLFull": "http://localhost/iocome/index.php/API/Category/EditCategory",
+		"URLShort": "http://localhost/iocome/index.php/API/C/EC"
+	},
+	{
+		"ElementID": "remove-category",
+		"TitleAPI": "Remove Category",
+		"URLFull": "http://localhost/iocome/index.php/API/Category/RemoveCategory",
+		"URLShort": "http://localhost/iocome/index.php/API/C/RC"
+	},
+	{
+		"ElementID": "get-list-all-category",
+		"TitleAPI": "Get List All Category",
+		"URLFull": "http://localhost/iocome/index.php/API/Category/GetListAllCategory",
+		"URLShort": "http://localhost/iocome/index.php/API/C/GLAC"
+	}
+]

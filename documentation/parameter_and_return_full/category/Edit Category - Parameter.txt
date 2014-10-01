@@ -1,0 +1,6 @@
+{
+	"ID": "[ int ]",
+	"ParentID": "[ int ]",
+	"Name": "[ string ]",
+	"Description": "[ string ]"
+}

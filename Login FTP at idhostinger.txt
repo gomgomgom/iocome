@@ -1,0 +1,12 @@
+direktori ::
+/home/u716112635/public_html/
+
+
+hostname ::
+ftp.iocome.meximas.com
+
+username ::
+u716112635.useriocome
+
+password ::
+9p9sCvsM2T

@@ -259,9 +259,50 @@
 				{
 					alert("You have sign out");
 					
-					// remove session
+					// Remove session
+					$.ajax({
+						url: '<?=site_url();?>/login/process_lost_password',
+						type: 'post',
+						dataType: 'json',
+						data: JSON.stringify(content),
+						beforeSend: function(){
+							LostPassword.msg.slideUp(400, function(){
+								LostPassword.msg.html('<img src="<?=images_url();?>/loading/ajax-load-4-1.gif" />');
+								LostPassword.msg.slideDown();
+							});
+						},
+						success: function(result){
+							if(result["Status"] == 200){
+								LostPassword.msg.slideUp(400, function(){
+									LostPassword.msg.html('<span style="color:#10AF16;">'+ result['Message'] +'</span>');
+									LostPassword.msg.slideDown();
+								});
+							}
+							else if(result["Status"] == 500){
+								LostPassword.msg.slideUp(400, function(){
+									LostPassword.msg.html(result['Message']);
+									LostPassword.msg.slideDown();
+								});
+								
+								LostPassword.bindSubmit();
+							}
+							else {
+								LostPassword.msg.slideUp(400, function(){
+									LostPassword.msg.html(result['Message']);
+									LostPassword.msg.slideDown();
+								});
+								
+								LostPassword.bindSubmit();
+							}
+						},
+						error: function(e){
+							alert("Send password failed. There is an error when send password to your email");
+							console.log(e);
+						}
+					});
 					
-					// remove cache
+					// Remove cache
+					// -- code --
 				}
 			}
 			

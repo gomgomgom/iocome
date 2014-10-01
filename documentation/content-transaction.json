@@ -1,0 +1,26 @@
+[
+	{
+		"ElementID": "add-transaction",
+		"TitleAPI": "Add Transaction",
+		"URLFull": "http://localhost/iocome/index.php/API/Transaction/AddTransaction",
+		"URLShort": "http://localhost/iocome/index.php/API/T/AT"
+	},
+	{
+		"ElementID": "edit-transaction",
+		"TitleAPI": "Edit Transaction",
+		"URLFull": "http://localhost/iocome/index.php/API/Transaction/EditTransaction",
+		"URLShort": "http://localhost/iocome/index.php/API/T/ET"
+	},
+	{
+		"ElementID": "remove-transaction",
+		"TitleAPI": "Remove Transaction",
+		"URLFull": "http://localhost/iocome/index.php/API/Transaction/RemoveTransaction",
+		"URLShort": "http://localhost/iocome/index.php/API/T/RT"
+	},
+	{
+		"ElementID": "get-list-all-transaction",
+		"TitleAPI": "Get List All Transaction",
+		"URLFull": "http://localhost/iocome/index.php/API/Transaction/GetListAllTransaction",
+		"URLShort": "http://localhost/iocome/index.php/API/T/GLAT"
+	}
+]

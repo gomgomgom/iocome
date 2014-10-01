@@ -302,13 +302,12 @@ var category = {
 		
 		// Send data to process delete
 		jQuery.ajax({
-			url: SITE_URL + "/category/delete",
-			type: "post",
-			data: {
-				category_id: category_id
-			},
+			url: SITE_URL + "/API/Category/RemoveCategory?id="+ category_id,
+			type: "get",
 			success: function(result){
-				if(result == 1){
+				result = JSON.parse(result);
+				
+				if(result["Status"] == 200){
 					// Remove row that was category has been deleted
 					jQuery(elementHTML).parent().parent().hide("slow");
 				} else {

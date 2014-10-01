@@ -1,0 +1,20 @@
+{
+	"DateTime": "[ date_time ]",
+	"Description": "[ string ]",
+	"Detail":
+	[
+		{
+			"Type": "[ string ]",
+			"CategoryID": "[ int ]",
+			"Nominal": "[ int ]",
+			"Description": "[ string ]"
+		},
+		{
+			"Type": "[ string ]",
+			"CategoryID": "[ int ]",
+			"Nominal": "[ int ]",
+			"Description": "[ string ]"
+		},
+		....
+	]
+}

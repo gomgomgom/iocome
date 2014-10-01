@@ -1,26 +1,95 @@
 <html>
 	<head>
-	
+		<script type="text/javascript" src="../plugins/jquery/jquery-1.10.2.min.js"></script>
+		<!--<link href='http://fonts.googleapis.com/css?family=Oxygen:300' rel='stylesheet' type='text/css'>-->
+		
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('.toc-toggle').click(function(){
+					if($(this).parent().next('.toc-content').is(':visible')){
+						$(this).text('[ + ]');
+						$(this).parent().next('.toc-content').slideUp();
+					} else {
+						$(this).text('[ - ]');
+						$(this).parent().next('.toc-content').slideDown()
+					}
+				});
+			});
+			
+			function toogleNote(elementHTML)
+			{
+				if($('#box-note').is(':visible')){
+					$('#box-note').slideUp();
+					$(elementHTML).text('v');
+				} else {
+					$('#box-note').slideDown();
+					$(elementHTML).text('^');
+				}
+			}
+		</script>
+		
 		<style>
+			body {
+				background-color: #f8f8f8;
+				font-family: 'Oxygen', sans-serif;
+			}
+		
+		
+		
 			label {
 				font-style: italic;
+				font-size: 14px;
+				padding-right: 20px;
 			}
 			
 			table {
-				border: 1px solid #0000FF;
-				border-radius: 5px;
+				border: 1px solid #DFDFD0;
+				box-shadow: 1px 1px 5px #A8A8B7;
 				padding: 10px;
 			}
 			
+			li > h2 {
+				border-bottom:3px solid #313030;
+				padding-bottom: 10px;
+			}
+			
+			li > h3 {
+				display: list-item;
+				list-style-type: square;
+			}
+			
+			li {
+				list-style-type: none;
+			}
+			
+			hr {
+				border: 3px solid black;
+			}
+			
+			a {
+				text-decoration: none; !important
+			}
+			a:hover {
+				text-decoration: underline; !important
+			}
+			
+			
+			
+			
+			
+			li.box-api-function {
+				padding-bottom: 50px;
+			}
 			
 			.back-to-top {
-				width: 100%;
+				line-height: 50px;
+				padding-bottom: 50px;
 				text-align: right;
+				width: 100%;
 			}
 			
 			.parameter, .return {
 				border: 1px solid #CECEBF;
-				border-radius: 5px;
 				font-size: 14px;
 				padding: 5px;
 				padding-top: 15px;
@@ -28,393 +97,351 @@
 			
 			.url {
 				border: 1px solid #CECEBF;
-				border-radius: 5px;
 				font-family: arial;
 				font-size: 13px;
 				padding: 5px;
+			}
+			
+			
+			
+			
+			/** STYLESHEET TOC **/
+			.toc {
+				font-size: 15px;
+				line-height: 25px;
+			}
+			.toc li {
+				list-style-type: circle;
+			}
+			.toc-toggle {
+				color: #999;
+				cursor: pointer;
+			}
+			.toc-toggle:hover {
+				color: #B3002D;
+			}
+			.toc-content {
+				color: #000;
+				font-size: 13px;
+			}
+			.toc-content a {
+				color: #000;
+			}
+			
+			
+			
+			/** Create two columns **/
+			#main-column {
+				border: 1px solid #ddd;
+				border-radius: 10px;
+				box-shadow: 1px 1px 5px #A8A8B7;
+				min-width: 800px;
+				padding: 10px;
+			}
+			#left-column {
+				height: 70%;
+				overflow-y: scroll;
+				width: 250px;
+			}
+			#left-column ul{
+				margin-left: -30px;
+			}
+			#right-column {
+				height: 70%;
+				overflow: auto;
 			}
 		</style>
 		
 	</head>
 	
 	<body>
-		<h1>IOcome Documentation - API</h1>
+		<h1>IOcome Documentation - API <button onClick="toogleNote(this);">^</button></h1>
 		
-		NOTE ::<br/>
-		For Get List .....  There are parameter start, limit, order by, order sort
-		<hr/>
-		<br/>
+		<div id="box-note">
+			NOTE ::<br/>
+			For Get List .....  There are parameter start, limit, order by, order sort
+			<hr/>
+			<br/>
+		</div>
 		
-		<h3>Table of Contents</h3>
-		<ul>
-			<li>Category</li>
-			<ul>
-				<li><a href="http://localhost/dev/iocome/documentation/api.html#add-category">Add Category</a></li>
-				<li><a href="http://localhost/dev/iocome/documentation/api.html#edit-category">Edit Category</a></li>
-				<li><a href="http://localhost/dev/iocome/documentation/api.html#remove-category">Remove Category</a></li>
-				<li><a href="http://localhost/dev/iocome/documentation/api.html#get-category-by-id">Get Category By ID</a></li>
-				<li><a href="http://localhost/dev/iocome/documentation/api.html#get-list-all-category">Get List All Category</a></li>
-				<li><a href="http://localhost/dev/iocome/documentation/api.html#get-list-category-by-parent">Get List Category By Parent</a></li>
-				<li><a href="http://localhost/dev/iocome/documentation/api.html#get-list-category-by-user">Get List Category By User</a></li>
-				<li><a href="http://localhost/dev/iocome/documentation/api.html#get-list-category-by-created-time">Get List Category By Created Time</a></li>
-			</ul>
-			<li>Transaction</li>
-			<ul>
-				<li><a href="http://localhost/dev/iocome/documentation/api.html#add-transaction">Add Transaction</a></li>
-				<li><a href="http://localhost/dev/iocome/documentation/api.html#edit-transaction">Edit Transaction</a></li>
-				<li><a href="http://localhost/dev/iocome/documentation/api.html#remove-transaction">Remove Transaction</a></li>
-				<li><a href="http://localhost/dev/iocome/documentation/api.html#get-transaction-by-id">Get Transaction By ID</a></li>
-				<li><a href="http://localhost/dev/iocome/documentation/api.html#get-list-all-transaction">Get List All Transaction</a></li>
-				<li><a href="http://localhost/dev/iocome/documentation/api.html#get-list-transaction-by-category">Get List Transaction By Category</a></li>
-				<li><a href="http://localhost/dev/iocome/documentation/api.html#get-list-transaction-by-date">Get List Transaction By Date</a></li>
-				<li><a href="http://localhost/dev/iocome/documentation/api.html#get-list-transaction-by-list-category">Get List Transaction By List Category</a></li>
-			</ul>
-			<li>User</li>
-			<ul>
-				<li><a href="http://localhost/dev/iocome/documentation/api.html#add-user">Add User</a></li>
-				<li><a href="http://localhost/dev/iocome/documentation/api.html#edit-user">Edit User</a></li>
-				<li><a href="http://localhost/dev/iocome/documentation/api.html#remove-user">Remove User</a></li>
-				<li><a href="http://localhost/dev/iocome/documentation/api.html#get-list-all-user">Get List All User</a></li>
-				<li><a href="http://localhost/dev/iocome/documentation/api.html#get-list-user-last-created">Get List User Last Created</a></li>
-				<li><a href="http://localhost/dev/iocome/documentation/api.html#get-user-by-id">Get User By ID</a></li>
-			</ul>
-			<li>Custom</li>
-			<ul>
-				<li><a href="http://localhost/dev/iocome/documentation/api.html#get-list-category-and-transaction-by-user">Get List Category And Transaction By User</a></li>
-				<li><a href="http://localhost/dev/iocome/documentation/api.html#get-list-category-and-transaction-last-created">Get List Category And Transaction Last Created</a></li>
-			</ul>
-		</ul>
-		<hr/>
-		<hr/>
+		<div id="main-column"><!-- Box All Content -->
 		
-		<ul>
-			<li id="category">
-				<h2>Category</h2>
-				<ul>
-					<li id="add-category">
-						<h3>Add Category</h3>
-						<table>
-							<tr>
-								<td><label>URL</label></td>
-								<td>:</td>
-								<td class="url">http://localhost/iocome/index.php/API/Category/AddCategory</td>
-							</tr>
-							<tr>
-								<td><label>Parameter</label></td>
-								<td>:</td>
-								<td class="parameter">
-									<pre>
-{
-	"ParentID": "[ int ]",
-	"ListData": 
-	[
-		{
-			"Name": "[ string ]",
-			"Description": "[ string ]"
-		},
-		{
-			"Name": "[ string ]",
-			"Description": "[ string ]"
-		},
-		...
-	]
-}
-									</pre>
-								</td>
-							</tr>
-							<tr>
-								<td><label>Return</label></td>
-								<td>:</td>
-								<td class="return">
-									<pre>
-{
-	"Status": "[ boolean ]",
-	"Message": "[ string ]"
-}
-									</pre>
-								</td>
-							</tr>
-						</table>
-						<a class="back-to-top" href="http://localhost/dev/iocome/documentation/api.html">Back to top &#10548;</a>
-					</li>
-					<li id="edit-category">
-						<h3>Edit Category</h3>
-						<table>
-							<tr>
-								<td><label>URL</label></td>
-								<td>:</td>
-								<td class="url">http://localhost/iocome/index.php/API/Category/EditCategory</td>
-							</tr>
-							<tr>
-								<td><label>Parameter</label></td>
-								<td>:</td>
-								<td class="parameter">
-									<pre>
-{
-	"ID": "[ int ]",
-	"ParentID": "[ int ]",
-	"Name": "[ string ]",
-	"Description": "[ string ]"
-}
-									</pre>
-								</td>
-							</tr>
-							<tr>
-								<td><label>Return</label></td>
-								<td>:</td>
-								<td class="return">
-									<pre>
-{
-	"Status": "[ boolean ]",
-	"Message": "[ string ]"
-}
-									</pre>
-								</td>
-							</tr>
-						</table>
-						<a class="back-to-top" href="http://localhost/dev/iocome/documentation/api.html">Back to top &#10548;</a>
-					</li>
-					<li id="remove-category">
-						<h3>Remove Category</h3>
-						<table>
-							<tr>
-								<td><label>URL</label></td>
-								<td>:</td>
-								<td class="url">http://localhost/iocome/index.php/API/Category/RemoveCategory?id=[ int ]</td>
-							</tr>
-							<tr>
-								<td><label>Parameter</label></td>
-								<td>:</td>
-								<td class="parameter">on URL (GET method)</td>
-							</tr>
-							<tr>
-								<td><label>Return</label></td>
-								<td>:</td>
-								<td class="return">
-									<pre>
-{
-	"Status": "[ boolean ]",
-	"Message": "[ string ]"
-}
-									</pre>
-								</td>
-							</tr>
-						</table>
-						<a class="back-to-top" href="http://localhost/dev/iocome/documentation/api.html">Back to top &#10548;</a>
-					</li>
-					<li id="get-list-all-category">
-						<h3>Get List All Category</h3>
-						<table>
-							<tr>
-								<td><label>URL</label></td>
-								<td>:</td>
-								<td class="url">http://localhost/iocome/index.php/API/Category/GetListAllCategory</td>
-							</tr>
-							<tr>
-								<td><label>Parameter</label></td>
-								<td>:</td>
-								<td class="parameter">NULL</td>
-							</tr>
-							<tr>
-								<td><label>Return</label></td>
-								<td>:</td>
-								<td class="return">
-									<pre>
-[
-	{
-		"ID": "[ int ]",
-		"ParentID": "[ int ]",
-		"Name": "[ string ]",
-		"Description": "[ string ]",
-		"CreatedOn": "[ date_time]",
-		"CreatedBy": "[ int ]",
-		"ModifiedOn": "[ int ]",
-		"ModifiedBy": "[ int ]"
-	},
-	{
-		"ID": "[ int ]",
-		"ParentID": "[ int ]",
-		"Name": "[ string ]",
-		"Description": "[ string ]",
-		"CreatedOn": "[ date_time]",
-		"CreatedBy": "[ int ]",
-		"ModifiedOn": "[ int ]",
-		"ModifiedBy": "[ int ]"
-	},
-	....
-]
-									</pre>
-								</td>
-							</tr>
-						</table>
-						<a class="back-to-top" href="http://localhost/dev/iocome/documentation/api.html">Back to top &#10548;</a>
-					</li>
-				</ul>
-			</li>
+			<div id="left-column" style="float:left;">
 			
-			<li id="transaction">
-				<h2>Transaction</h2>
+			<h3 style="text-align:center;">Table of Contents</h3>
+			<ul class="toc">
+				<li><br/><b>Category</b> &nbsp; <span class="toc-toggle">[ - ]</span></li>
+				<div class="toc-content">
 				<ul>
-					<li id="add-transaction">
-						<h3>Add Transaction</h3>
-						<table>
-							<tr>
-								<td><label>URL</label></td>
-								<td>:</td>
-								<td class="url">http://localhost/iocome/index.php/API/Transaction/AddTransaction</td>
-							</tr>
-							<tr>
-								<td><label>Parameter</label></td>
-								<td>:</td>
-								<td class="parameter">
-									<pre>
-{
-	"DateTime": "[ date_time ]",
-	"Description": "[ string ]",
-	"Detail":
-	[
-		{
-			"Type": "[ string ]",
-			"CategoryID": "[ int ]",
-			"Nominal": "[ int ]",
-			"Description": "[ string ]"
-		},
-		{
-			"Type": "[ string ]",
-			"CategoryID": "[ int ]",
-			"Nominal": "[ int ]",
-			"Description": "[ string ]"
-		},
-		....
-	]
-}
-									</pre>
-								</td>
-							</tr>
-							<tr>
-								<td><label>Return</label></td>
-								<td>:</td>
-								<td class="return">
-									<pre>
-{
-	"Status": "[ boolean ]",
-	"Message": "[ string ]"
-}
-									</pre>
-								</td>
-							</tr>
-						</table>
-						<a class="back-to-top" href="http://localhost/dev/iocome/documentation/api.html">Back to top &#10548;</a>
-					</li>
-					<li id="edit-transaction">
-						<h3>Edit Transaction</h3>
-						<table>
-							<tr>
-								<td><label>URL</label></td>
-								<td>:</td>
-								<td class="url">http://localhost/iocome/index.php/API/Transaction/EditTransaction</td>
-							</tr>
-							<tr>
-								<td><label>Parameter</label></td>
-								<td>:</td>
-								<td class="parameter">
-									<pre>
-{
-	"ID": "[ int ]",
-	"DateTime": "[ date_time ]",
-	"Description": "[ string ]",
-	"Detail":
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#add-category">Add Category</a> *</li>
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#edit-category">Edit Category</a> *</li>
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#remove-category">Remove Category</a> *</li>
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#get-category-by-id">Get Category By ID</a></li>
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#get-list-all-category">Get List All Category</a> *</li>
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#get-list-category-by-parent">Get List Category By Parent</a></li>
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#get-list-category-by-user">Get List Category By User</a></li>
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#get-list-category-by-created-time">Get List Category By Created Time</a></li>
+				</ul>
+				</div>
+				<li><br/><b>Transaction</b> &nbsp; <span class="toc-toggle">[ - ]</span></li>
+				<div class="toc-content">
+				<ul>
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#add-transaction">Add Transaction</a> *</li>
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#edit-transaction">Edit Transaction</a> *</li>
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#remove-transaction">Remove Transaction</a> *</li>
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#get-transaction-by-id">Get Transaction By ID</a></li>
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#get-list-all-transaction">Get List All Transaction</a> *</li>
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#get-list-transaction-by-category">Get List Transaction By Category</a></li>
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#get-list-transaction-by-date">Get List Transaction By Date</a> *</li>
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#get-total-transaction-by-day">Get Total Transaction By Day</a> *</li>
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#get-total-transaction-by-month">Get Total Transaction By Month</a> *</li>
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#get-total-transaction-by-year">Get Total Transaction By Year</a> *</li>
+				</ul>
+				</div>
+				<li><br/><b>User</b> &nbsp; <span class="toc-toggle">[ - ]</span></li>
+				<div class="toc-content">
+				<ul>
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#add-user">Add User</a> *</li>
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#edit-user">Edit User</a> *</li>
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#remove-user">Remove User</a> *</li>
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#get-list-all-user">Get List All User</a></li>
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#get-list-user-last-created">Get List User Last Created</a></li>
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#get-user-by-id">Get User By ID</a></li>
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#login">Login</a> *</li>
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#logout">Logout</a> *</li>
+				</ul>
+				</div>
+				<li><br/><b>Custom</b> &nbsp; <span class="toc-toggle">[ - ]</span></li>
+				<div class="toc-content">
+				<ul>
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#get-list-category-and-transaction-by-user">Get List Category And Transaction By User</a></li>
+					<li><a href="http://localhost/dev/iocome/documentation/api.html#get-list-category-and-transaction-last-created">Get List Category And Transaction Last Created</a></li>
+				</ul>
+				</div>
+			</ul>
+			
+			</div>
+			<div id="right-column">
+			
+			<ul>
+				<li id="category">
+					<h2>Category</h2>
+					<ul>
+						<li class="box-api-function" id="add-category">
+							<h3>Add Category</h3>
+							<table>
+								<tr>
+									<td><label>URL</label></td>
+									<td class="url">http://localhost/iocome/index.php/API/Category/AddCategory</td>
+								</tr>
+								<tr>
+									<td><label>Parameter</label></td>
+									<td class="parameter">
+										<pre>
+	{
+		"ParentID": "[ int ]",
+		"ListData": 
+		[
+			{
+				"Name": "[ string ]",
+				"Description": "[ string ]"
+			},
+			{
+				"Name": "[ string ]",
+				"Description": "[ string ]"
+			},
+			...
+		]
+	}
+										</pre>
+									</td>
+								</tr>
+								<tr>
+									<td><label>Return</label></td>
+									<td class="return">
+										<pre>
+	{
+		"Status": "[ boolean ]",
+		"Message": "[ string ]"
+	}
+										</pre>
+									</td>
+								</tr>
+							</table>
+							<a class="back-to-top" href="http://localhost/dev/iocome/documentation/api.html">Back to top &#10548;</a>
+						</li>
+						<li class="box-api-function" id="edit-category">
+							<h3>Edit Category</h3>
+							<table>
+								<tr>
+									<td><label>URL</label></td>
+									<td class="url">http://localhost/iocome/index.php/API/Category/EditCategory</td>
+								</tr>
+								<tr>
+									<td><label>Parameter</label></td>
+									<td class="parameter">
+										<pre>
+	{
+		"ID": "[ int ]",
+		"ParentID": "[ int ]",
+		"Name": "[ string ]",
+		"Description": "[ string ]"
+	}
+										</pre>
+									</td>
+								</tr>
+								<tr>
+									<td><label>Return</label></td>
+									<td class="return">
+										<pre>
+	{
+		"Status": "[ boolean ]",
+		"Message": "[ string ]"
+	}
+										</pre>
+									</td>
+								</tr>
+							</table>
+							<a class="back-to-top" href="http://localhost/dev/iocome/documentation/api.html">Back to top &#10548;</a>
+						</li>
+						<li class="box-api-function" id="remove-category">
+							<h3>Remove Category</h3>
+							<table>
+								<tr>
+									<td><label>URL</label></td>
+									<td class="url">http://localhost/iocome/index.php/API/Category/RemoveCategory?id=[ int, use comma for multiple id ]</td>
+								</tr>
+								<tr>
+									<td><label>Parameter</label></td>
+									<td class="parameter">on URL (GET method)</td>
+								</tr>
+								<tr>
+									<td><label>Return</label></td>
+									<td class="return">
+										<pre>
+	{
+		"Status": "[ boolean ]",
+		"Message": "[ string ]"
+	}
+										</pre>
+									</td>
+								</tr>
+							</table>
+							<a class="back-to-top" href="http://localhost/dev/iocome/documentation/api.html">Back to top &#10548;</a>
+						</li>
+						<li class="box-api-function" id="get-list-all-category">
+							<h3>Get List All Category</h3>
+							<table>
+								<tr>
+									<td><label>URL</label></td>
+									<td class="url">http://localhost/iocome/index.php/API/Category/GetListAllCategory</td>
+								</tr>
+								<tr>
+									<td><label>Parameter</label></td>
+									<td class="parameter">NULL</td>
+								</tr>
+								<tr>
+									<td><label>Return</label></td>
+									<td class="return">
+										<pre>
 	[
 		{
 			"ID": "[ int ]",
-			"Type": "[ string ]",
-			"CategoryID": "[ int ]",
-			"Nominal": "[ int ]",
-			"Description": "[ string ]"
+			"ParentID": "[ int ]",
+			"Name": "[ string ]",
+			"Description": "[ string ]",
+			"CreatedOn": "[ date_time]",
+			"CreatedBy": "[ int ]",
+			"LastModifiedOn": "[ int ]",
+			"LastModifiedBy": "[ int ]"
 		},
 		{
 			"ID": "[ int ]",
-			"Type": "[ string ]",
-			"CategoryID": "[ int ]",
-			"Nominal": "[ int ]",
-			"Description": "[ string ]"
+			"ParentID": "[ int ]",
+			"Name": "[ string ]",
+			"Description": "[ string ]",
+			"CreatedOn": "[ date_time]",
+			"CreatedBy": "[ int ]",
+			"LastModifiedOn": "[ int ]",
+			"LastModifiedBy": "[ int ]"
 		},
 		....
 	]
-}
-									</pre>
-								</td>
-							</tr>
-							<tr>
-								<td><label>Return</label></td>
-								<td>:</td>
-								<td class="return">
-									<pre>
-{
-	"Status": "[ boolean ]",
-	"Message": "[ string ]"
-}
-									</pre>
-								</td>
-							</tr>
-						</table>
-						<a class="back-to-top" href="http://localhost/dev/iocome/documentation/api.html">Back to top &#10548;</a>
-					</li>
-					<li id="remove-transaction">
-						<h3>Remove Transaction</h3>
-						<table>
-							<tr>
-								<td><label>URL</label></td>
-								<td>:</td>
-								<td class="url">http://localhost/iocome/index.php/API/Transaction/RemoveTransaction?id=[ int ]</td>
-							</tr>
-							<tr>
-								<td><label>Parameter</label></td>
-								<td>:</td>
-								<td class="parameter">on URL (GET method)</td>
-							</tr>
-							<tr>
-								<td><label>Return</label></td>
-								<td>:</td>
-								<td class="return">
-									<pre>
-{
-	"Status": "[ boolean ]",
-	"Message": "[ string ]"
-}
-									</pre>
-								</td>
-							</tr>
-						</table>
-						<a class="back-to-top" href="http://localhost/dev/iocome/documentation/api.html">Back to top &#10548;</a>
-					</li>
-					<li id="get-list-all-transactions">
-						<h3>Get List All Transactions</h3>
-						<table>
-							<tr>
-								<td><label>URL</label></td>
-								<td>:</td>
-								<td class="url">http://localhost/iocome/index.php/API/Transaction/GetListAllTransactions</td>
-							</tr>
-							<tr>
-								<td><label>Parameter</label></td>
-								<td>:</td>
-								<td class="parameter">NULL</td>
-							</tr>
-							<tr>
-								<td><label>Return</label></td>
-								<td>:</td>
-								<td class="return">
-									<pre>
-[
+										</pre>
+									</td>
+								</tr>
+							</table>
+							<a class="back-to-top" href="http://localhost/dev/iocome/documentation/api.html">Back to top &#10548;</a>
+						</li>
+					</ul>
+				</li>
+				
+				<li id="transaction">
+					<h2>Transaction</h2>
+					<ul>
+						<li class="box-api-function" id="add-transaction">
+							<h3>Add Transaction</h3>
+							<table>
+								<tr>
+									<td><label>URL</label></td>
+									<td class="url">http://localhost/iocome/index.php/API/Transaction/AddTransaction</td>
+								</tr>
+								<tr>
+									<td><label>Parameter</label></td>
+									<td class="parameter">
+										<pre>
+	{
+		"DateTime": "[ date_time ]",
+		"Description": "[ string ]",
+		"Detail":
+		[
+			{
+				"Type": "[ string ]",
+				"CategoryID": "[ int ]",
+				"Nominal": "[ int ]",
+				"Description": "[ string ]"
+			},
+			{
+				"Type": "[ string ]",
+				"CategoryID": "[ int ]",
+				"Nominal": "[ int ]",
+				"Description": "[ string ]"
+			},
+			....
+		]
+	}
+										</pre>
+									</td>
+								</tr>
+								<tr>
+									<td><label>Return</label></td>
+									<td class="return">
+										<pre>
+	{
+		"Status": "[ boolean ]",
+		"Message": "[ string ]"
+	}
+										</pre>
+									</td>
+								</tr>
+							</table>
+							<a class="back-to-top" href="http://localhost/dev/iocome/documentation/api.html">Back to top &#10548;</a>
+						</li>
+						<li class="box-api-function" id="edit-transaction">
+							<h3>Edit Transaction</h3>
+							<table>
+								<tr>
+									<td><label>URL</label></td>
+									<td class="url">http://localhost/iocome/index.php/API/Transaction/EditTransaction</td>
+								</tr>
+								<tr>
+									<td><label>Parameter</label></td>
+									<td class="parameter">
+										<pre>
 	{
 		"ID": "[ int ]",
 		"DateTime": "[ date_time ]",
 		"Description": "[ string ]",
-		"CreatedOn": "[ date_time]",
-		"CreatedBy": "[ int ]",
-		"ModifiedOn": "[ int ]",
-		"ModifiedBy": "[ int ]",
 		"Detail":
 		[
 			{
@@ -422,62 +449,307 @@
 				"Type": "[ string ]",
 				"CategoryID": "[ int ]",
 				"Nominal": "[ int ]",
-				"Description": "[ string ]",
-				"CreatedOn": "[ date_time]",
-				"CreatedBy": "[ int ]",
-				"ModifiedOn": "[ int ]",
-				"ModifiedBy": "[ int ]"
+				"Description": "[ string ]"
 			},
 			{
 				"ID": "[ int ]",
 				"Type": "[ string ]",
 				"CategoryID": "[ int ]",
 				"Nominal": "[ int ]",
-				"Description": "[ string ]",
-				"CreatedOn": "[ date_time]",
-				"CreatedBy": "[ int ]",
-				"ModifiedOn": "[ int ]",
-				"ModifiedBy": "[ int ]"
+				"Description": "[ string ]"
 			},
 			....
 		]
-	},
+	}
+										</pre>
+									</td>
+								</tr>
+								<tr>
+									<td><label>Return</label></td>
+									<td class="return">
+										<pre>
+	{
+		"Status": "[ boolean ]",
+		"Message": "[ string ]"
+	}
+										</pre>
+									</td>
+								</tr>
+							</table>
+							<a class="back-to-top" href="http://localhost/dev/iocome/documentation/api.html">Back to top &#10548;</a>
+						</li>
+						<li class="box-api-function" id="remove-transaction">
+							<h3>Remove Transaction</h3>
+							<table>
+								<tr>
+									<td><label>URL</label></td>
+									<td class="url">http://localhost/iocome/index.php/API/Transaction/RemoveTransaction?id=[ int ]</td>
+								</tr>
+								<tr>
+									<td><label>Parameter</label></td>
+									<td class="parameter">on URL (GET method)</td>
+								</tr>
+								<tr>
+									<td><label>Return</label></td>
+									<td class="return">
+										<pre>
+	{
+		"Status": "[ boolean ]",
+		"Message": "[ string ]"
+	}
+										</pre>
+									</td>
+								</tr>
+							</table>
+							<a class="back-to-top" href="http://localhost/dev/iocome/documentation/api.html">Back to top &#10548;</a>
+						</li>
+						<li class="box-api-function" id="get-list-all-transaction">
+							<h3>Get List All Transactions</h3>
+							<table>
+								<tr>
+									<td><label>URL</label></td>
+									<td class="url">http://localhost/iocome/index.php/API/Transaction/GetListAllTransactions</td>
+								</tr>
+								<tr>
+									<td><label>Parameter</label></td>
+									<td class="parameter">NULL</td>
+								</tr>
+								<tr>
+									<td><label>Return</label></td>
+									<td class="return">
+										<pre>
+	[
+		{
+			"ID": "[ int ]",
+			"DateTime": "[ date_time ]",
+			"Description": "[ string ]",
+			"CreatedOn": "[ date_time]",
+			"CreatedBy": "[ int ]",
+			"ModifiedOn": "[ int ]",
+			"ModifiedBy": "[ int ]",
+			"Detail":
+			[
+				{
+					"ID": "[ int ]",
+					"Type": "[ string ]",
+					"CategoryID": "[ int ]",
+					"Nominal": "[ int ]",
+					"Description": "[ string ]",
+					"CreatedOn": "[ date_time]",
+					"CreatedBy": "[ int ]",
+					"ModifiedOn": "[ int ]",
+					"ModifiedBy": "[ int ]"
+				},
+				{
+					"ID": "[ int ]",
+					"Type": "[ string ]",
+					"CategoryID": "[ int ]",
+					"Nominal": "[ int ]",
+					"Description": "[ string ]",
+					"CreatedOn": "[ date_time]",
+					"CreatedBy": "[ int ]",
+					"ModifiedOn": "[ int ]",
+					"ModifiedBy": "[ int ]"
+				},
+				....
+			]
+		},
+		{
+			"ID": "[ int ]",
+			"DateTime": "[ date_time ]",
+			"Description": "[ string ]",
+			"CreatedOn": "[ date_time]",
+			"CreatedBy": "[ int ]",
+			"ModifiedOn": "[ int ]",
+			"ModifiedBy": "[ int ]",
+			"Detail":
+			[
+				{
+					"ID": "[ int ]",
+					"Type": "[ string ]",
+					"CategoryID": "[ int ]",
+					"Nominal": "[ int ]",
+					"Description": "[ string ]",
+					"CreatedOn": "[ date_time]",
+					"CreatedBy": "[ int ]",
+					"ModifiedOn": "[ int ]",
+					"ModifiedBy": "[ int ]"
+				},
+				....
+			]
+		},
+		....
+	]
+										</pre>
+									</td>
+								</tr>
+							</table>
+							<a class="back-to-top" href="http://localhost/dev/iocome/documentation/api.html">Back to top &#10548;</a>
+						</li>
+					</ul>
+				</li>
+				
+				<li id="user">
+					<h2>User</h2>
+					<ul>
+						<li class="box-api-function" id="add-user">
+							<h3>Add User</h3>
+							<table>
+								<tr>
+									<td><label>URL</label></td>
+									<td class="url">http://localhost/iocome/index.php/API/User/AddUser</td>
+								</tr>
+								<tr>
+									<td><label>Parameter</label></td>
+									<td class="parameter">
+										<pre>
+	{
+		"Username": "[ string ]",
+		"Password": "[ string ]",
+		"Name": "[ string ]",
+		"Email": "[ string ]"
+	}
+										</pre>
+									</td>
+								</tr>
+								<tr>
+									<td><label>Return</label></td>
+									<td class="return">
+										<pre>
+	{
+		"Status": "[ boolean ]",
+		"Message": "[ string ]"
+	}
+										</pre>
+									</td>
+								</tr>
+							</table>
+							<a class="back-to-top" href="http://localhost/dev/iocome/documentation/api.html">Back to top &#10548;</a>
+						</li>
+						<li class="box-api-function" id="edit-user">
+							<h3>Edit User</h3>
+							<table>
+								<tr>
+									<td><label>URL</label></td>
+									<td class="url">http://localhost/iocome/index.php/API/User/EditUser</td>
+								</tr>
+								<tr>
+									<td><label>Parameter</label></td>
+									<td class="parameter">
+										<pre>
 	{
 		"ID": "[ int ]",
-		"DateTime": "[ date_time ]",
-		"Description": "[ string ]",
-		"CreatedOn": "[ date_time]",
-		"CreatedBy": "[ int ]",
-		"ModifiedOn": "[ int ]",
-		"ModifiedBy": "[ int ]",
-		"Detail":
-		[
-			{
-				"ID": "[ int ]",
-				"Type": "[ string ]",
-				"CategoryID": "[ int ]",
-				"Nominal": "[ int ]",
-				"Description": "[ string ]",
-				"CreatedOn": "[ date_time]",
-				"CreatedBy": "[ int ]",
-				"ModifiedOn": "[ int ]",
-				"ModifiedBy": "[ int ]"
-			},
-			....
-		]
-	},
-	....
-]
-									</pre>
-								</td>
-							</tr>
-						</table>
-						<a class="back-to-top" href="http://localhost/dev/iocome/documentation/api.html">Back to top &#10548;</a>
-					</li>
-				</ul>
-			</li>
+		"Password": "[ string ]",
+		"Name": "[ string ]",
+		"Email": "[ string ]"
+	}
+										</pre>
+									</td>
+								</tr>
+								<tr>
+									<td><label>Return</label></td>
+									<td class="return">
+										<pre>
+	{
+		"Status": "[ boolean ]",
+		"Message": "[ string ]"
+	}
+										</pre>
+									</td>
+								</tr>
+							</table>
+							<a class="back-to-top" href="http://localhost/dev/iocome/documentation/api.html">Back to top &#10548;</a>
+						</li>
+						<li class="box-api-function" id="remove-user">
+							<h3>Remove User</h3>
+							<table>
+								<tr>
+									<td><label>URL</label></td>
+									<td class="url">http://localhost/iocome/index.php/API/Transaction/RemoveUser?id=[ int ]</td>
+								</tr>
+								<tr>
+									<td><label>Parameter</label></td>
+									<td class="parameter">on URL (GET method)</td>
+								</tr>
+								<tr>
+									<td><label>Return</label></td>
+									<td class="return">
+										<pre>
+	{
+		"Status": "[ boolean ]",
+		"Message": "[ string ]"
+	}
+										</pre>
+									</td>
+								</tr>
+							</table>
+							<a class="back-to-top" href="http://localhost/dev/iocome/documentation/api.html">Back to top &#10548;</a>
+						</li>
+						<li class="box-api-function" id="login">
+							<h3>Login</h3>
+							<table>
+								<tr>
+									<td><label>URL</label></td>
+									<td class="url">http://localhost/iocome/index.php/API/User/Login</td>
+								</tr>
+								<tr>
+									<td><label>Parameter</label></td>
+									<td class="parameter">
+										<pre>
+	{
+		"Username": "[ string ]",
+		"Password": "[ string ]"
+	}
+										</pre>
+									</td>
+								</tr>
+								<tr>
+									<td><label>Return</label></td>
+									<td class="return">
+										<pre>
+	{
+		"Status": "[ boolean ]",
+		"Message": "[ string ]"
+	}
+										</pre>
+									</td>
+								</tr>
+							</table>
+							<a class="back-to-top" href="http://localhost/dev/iocome/documentation/api.html">Back to top &#10548;</a>
+						</li>
+						<li class="box-api-function" id="logout">
+							<h3>Logout</h3>
+							<table>
+								<tr>
+									<td><label>URL</label></td>
+									<td class="url">http://localhost/iocome/index.php/API/User/Logout</td>
+								</tr>
+								<tr>
+									<td><label>Parameter</label></td>
+									<td class="parameter">NULL
+									</td>
+								</tr>
+								<tr>
+									<td><label>Return</label></td>
+									<td class="return">
+										<pre>
+	{
+		"Status": "[ boolean ]",
+		"Message": "[ string ]"
+	}
+										</pre>
+									</td>
+								</tr>
+							</table>
+							<a class="back-to-top" href="http://localhost/dev/iocome/documentation/api.html">Back to top &#10548;</a>
+						</li>
+					</ul>
+				</li>
+				
+			</ul>
 			
-		</ul>
+			</div>
+		</div>
 		
 	</body>
 	

@@ -1,0 +1,23 @@
+[
+	{
+		"ID": "[ int ]",
+		"ParentID": "[ int ]",
+		"Name": "[ string ]",
+		"Description": "[ string ]",
+		"CreatedOn": "[ date_time]",
+		"CreatedBy": "[ int ]",
+		"LastModifiedOn": "[ int ]",
+		"LastModifiedBy": "[ int ]"
+	},
+	{
+		"ID": "[ int ]",
+		"ParentID": "[ int ]",
+		"Name": "[ string ]",
+		"Description": "[ string ]",
+		"CreatedOn": "[ date_time]",
+		"CreatedBy": "[ int ]",
+		"LastModifiedOn": "[ int ]",
+		"LastModifiedBy": "[ int ]"
+	},
+	....
+]
